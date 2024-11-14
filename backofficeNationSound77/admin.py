@@ -41,8 +41,8 @@ class SceneAdmin(admin.ModelAdmin):
 
 @admin.register(Programme)
 class ProgrammeAdmin(admin.ModelAdmin):
-    list_display = ('calendrier', 'horaire', 'artiste', 'event', 'scene', 'artiste_image')
-    list_filter = ('calendrier', 'scene', 'event')
+    list_display = ('calendrier', 'horaire', 'artiste', 'artiste__style', 'event', 'scene', 'artiste_image')
+    list_filter = ('calendrier', 'scene', 'event', 'artiste__style')
     search_fields = ('artiste__nom', 'artiste__style__style')
     ordering = ('calendrier', 'horaire')
     
