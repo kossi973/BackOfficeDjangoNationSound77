@@ -41,7 +41,7 @@ class SceneAdmin(admin.ModelAdmin):
 
 @admin.register(Programme)
 class ProgrammeAdmin(admin.ModelAdmin):
-    list_display = ('calendrier', 'horaire', 'artiste', 'artiste__style', 'event', 'scene', 'artiste_image')
+    list_display = ('calendrier', 'horaire', 'artiste__nom', 'artiste__style', 'event', 'scene', 'artiste_image')
     list_filter = ('calendrier', 'scene', 'event', 'artiste__style')
     search_fields = ('artiste__nom', 'artiste__style__style')
     ordering = ('calendrier', 'horaire')
@@ -51,7 +51,7 @@ class ProgrammeAdmin(admin.ModelAdmin):
         if obj.artiste and obj.artiste.visuel:
             return format_html('<img src="{}" width="50" height="50" />', obj.artiste.visuel.url)
         return "-"
-    artiste_image.short_description = "Visuel"
+    artiste_image.short_description = "Artiste Visuel"
 
     # Ajoute des champs de filtrage par date et heure
     date_hierarchy = 'calendrier__date_festival'
