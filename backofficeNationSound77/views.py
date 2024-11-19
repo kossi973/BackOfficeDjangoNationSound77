@@ -5,9 +5,13 @@ from rest_framework import viewsets
 from .models import Style, Artiste, Calendrier, Scene, Programme, Event
 from .models import CategoriePoi, Poi
 from .models import MessageUrgent
+from .models import Information
+from .models import ImageCarrousel
 from .serializers import StyleSerializer, ArtisteSerializer, CalendrierSerializer, SceneSerializer, ProgrammeSerializer, EventSerializer
 from .serializers import CategoriePoiSerializer, PoiSerializer
 from .serializers import MessageUrgentSerializer
+from .serializers import InformationSerializer
+from .serializers import ImageCarrouselSerializer
 
 
 class StyleViewSet(viewsets.ModelViewSet):
@@ -46,3 +50,11 @@ class PoiViewSet(viewsets.ModelViewSet):
 class MessageUrgentViewSet(viewsets.ModelViewSet):
     queryset = MessageUrgent.objects.all()
     serializer_class = MessageUrgentSerializer
+
+class InformationViewSet(viewsets.ModelViewSet):
+    queryset = Information.objects.all()
+    serializer_class = InformationSerializer
+
+class ImageCarrouselViewSet(viewsets.ModelViewSet):
+    queryset = ImageCarrousel.objects.all()
+    serializer_class = ImageCarrouselSerializer

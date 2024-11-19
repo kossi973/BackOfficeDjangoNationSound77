@@ -97,4 +97,26 @@ class MessageUrgent(models.Model):
     def __str__(self):
         return self.msgUrgent
     class Meta:
+        verbose_name_plural = "Messages urgents"
         ordering = ['prioriteMsg','msgUrgent']
+
+#Model de Information
+class Information(models.Model):
+    information = models.CharField(max_length=100)
+    prioriteInfo = models.IntegerField(default=1)
+
+    def __str__(self):
+        return self.information
+    class Meta:
+        ordering = ['prioriteInfo','information']
+
+
+class ImageCarrousel(models.Model):
+    image = models.ImageField(upload_to='carrousel_images/')
+    prioriteImage = models.IntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.prioriteImage}"   
+    class Meta:
+        verbose_name_plural = "Images Carrousel"
+        ordering = ['prioriteImage']

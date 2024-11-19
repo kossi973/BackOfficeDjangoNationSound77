@@ -2,6 +2,8 @@ from rest_framework import serializers
 from .models import Style, Artiste, Calendrier, Scene, Programme, Event
 from .models import CategoriePoi, Poi
 from .models import MessageUrgent
+from .models import Information
+from .models import ImageCarrousel
 
 class CalendrierSerializer(serializers.ModelSerializer):
     class Meta:
@@ -60,3 +62,13 @@ class MessageUrgentSerializer(serializers.ModelSerializer):
     class Meta:
         model = MessageUrgent
         fields = ['id', 'msgUrgent', 'prioriteMsg']
+
+class InformationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Information
+        fields = ['id', 'information', 'prioriteInfo']
+
+class ImageCarrouselSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ImageCarrousel
+        fields = ['id', 'image', 'prioriteImage']

@@ -3,6 +3,8 @@ from django.utils.html import format_html
 from .models import Style, Artiste, Calendrier, Scene, Programme, Event
 from .models import CategoriePoi, Poi
 from .models import MessageUrgent
+from .models import Information
+from .models import ImageCarrousel
 
 # Register your models here.
 
@@ -74,3 +76,21 @@ class PoiAdmin(admin.ModelAdmin):
 class MessageUrgentAdmin(admin.ModelAdmin):
     list_display = ('msgUrgent','prioriteMsg' )
     search_fields = ('prioriteMsg',)
+
+#Model de Information    
+@admin.register(Information)
+class InformationAdmin(admin.ModelAdmin):
+    list_display = ('information','prioriteInfo' )
+    search_fields = ('prioriteInfo',)
+
+#Model de ImageCarrousel    
+@admin.register(ImageCarrousel)
+class ImageCarrouselAdmin(admin.ModelAdmin):
+    list_display = ('image_preview','prioriteImage' )
+    search_fields = ('prioriteImage',)
+
+    def image_preview(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" style="width: 80px; height:80px;" />'.format(obj.image.url))
+        return ""
+    image_preview.short_description = 'Image Carrousel'
