@@ -65,5 +65,5 @@ class FaqcategorieAdmin(admin.ModelAdmin):
 
 @admin.register(Faq)
 class FaqAdmin(admin.ModelAdmin):
-    list_display = ('categorie','question', 'reponse','ordre')
+    list_display = ('question', 'reponse','ordre','categorie')
     search_fields = ('question',)
