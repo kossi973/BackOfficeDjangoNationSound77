@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'backofficeNationSound77',
+    'ecransReact'
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'nationsound77.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, r'nationsound77\templates')],
+        'DIRS': [os.path.join(BASE_DIR, r'nationsound77\templates\ns77')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

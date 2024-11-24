@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>LES PARTENAIRES</h1>
+    <hr>
+    {% for partenaire in partenaires %}
+        <h2>{{ partenaire.nom }}</h2>
+        <img src="{{ partenaire.visuel.url }}" alt="{{ partenaire.visuel.url }}" style="max-width: 100px;">
+        <h3>{{ partenaire.description }}</h3>
+        <hr>
+    {% endfor %}
+{% endblock %}

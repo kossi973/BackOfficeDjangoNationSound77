@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Bonjour,<br> bienvenue sur la console d'aministration du site Nation Sound !!!</h1>
+    <h2>{{date | date:"d F Y H:m:s"}}</h2>
+    <hr>
+    <br>
+    <div>
+        <a href="http://127.0.0.1:8000/admin/login/?next=/admin/">Gestion des données et autorisations</a>
+    </div>
+    <br>
+    <div>
+        <a href="http://127.0.0.1:8000/apirest/">Console API</a>
+    </div>
+{% endblock %}

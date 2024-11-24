@@ -19,7 +19,6 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from django.views.defaults import server_error
 
 from .views import index
 
@@ -27,6 +26,7 @@ urlpatterns = [
     path('', index, name="Home Page"),
     path('admin/', admin.site.urls),
     path('apirest/', include('backofficeNationSound77.urls')),
+    path('', include('ecransReact.urls')),
 
 ]
 

@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class EcransNs77Config(AppConfig):
+class EcransreactConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'ecrans_NS77'
+    name = 'ecransReact'
