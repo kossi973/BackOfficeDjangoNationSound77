@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>MENTIONS LEGALES</h1>
+    <hr>
+    {% for mentionlegale in mentionslegales %}
+        <h3>{{ mentionlegale.titre }}</h3>
+        <p>{{ mentionlegale.mention }}</p>
+        <hr>
+    {% endfor %}
+{% endblock %}

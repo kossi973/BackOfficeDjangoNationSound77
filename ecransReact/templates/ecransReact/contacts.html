@@ -1,11 +1,18 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacts</title>
-</head>
-<body>
-    <h1 classname="text-red-500 text-3xl">Les contacts du festival</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>NOUS CONTACTER</h1>
+    <hr>
+    {% for contact in contacts %}
+        <img src="{{ contact.visuel.url }}" alt="{{ contact.visuel.url }}" style="max-width: 100px;">
+        <p>Adresse : </p>
+        <p>{{ contact.adresse }}</p>
+        <p>Horaires d'ouverture : </p>
+        <p>{{ contact.horaires }}</p>
+        <p>Mail : </p>
+        <p>{{ contact.mail }}</p>
+        <p>Téléphone : </p>
+        <p>{{ contact.telephone }}</p>
+        <hr>
+    {% endfor %}
+{% endblock %}

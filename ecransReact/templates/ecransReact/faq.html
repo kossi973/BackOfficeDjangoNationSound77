@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ</title>
-</head>
-<body>
-    <h1>La FAQ</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>QUESTIONS FREQUENTES</h1>
+    <hr>
+    {% for faq in faq %}
+        <p>{{ faq.categorie }}</p>
+        <h2>{{ faq.question }}</h2>
+        <p>{{ faq.reponse }}</p>
+        <hr>
+    {% endfor %}
+{% endblock %}
