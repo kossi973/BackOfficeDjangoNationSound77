@@ -28,6 +28,7 @@ urlpatterns = [
     path('apirest/', include('backofficeNationSound77.urls')),
     path('', include('ecransReact.urls')),
     path('', include('accounts.urls')),
+    path("__reload__/", include("django_browser_reload.urls")),
 
 ]
 

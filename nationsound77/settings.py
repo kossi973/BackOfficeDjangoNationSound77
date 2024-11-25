@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     'corsheaders',
     'backofficeNationSound77',
     'ecransReact',
-    'accounts'
+    'accounts',
+    'tailwind',
+    'theme',
+    'django_browser_reload'
 ]
 
 MIDDLEWARE = [
@@ -54,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'nationsound77.urls'
@@ -140,3 +144,12 @@ CORS_ALLOW_ALL_ORIGINS = True
 #     "http://localhost:3000",
 #     "https://your-production-site.com",
 # ]
+
+# Configuration Tailwind css
+TAILWIND_APP_NAME = 'theme'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+NPM_BIN_PATH = "/Program Files/nodejs/npm.cmd"
