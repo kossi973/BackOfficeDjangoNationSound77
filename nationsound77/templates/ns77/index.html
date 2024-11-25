@@ -1,37 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="text-gray-800 m-4">
-    <h2 class="bg-gray-300 p-2 text-xl rounded-lg my-4">Bienvenue sur la console du site Nation Sound 77 !</h2>
-    <h3 class="py-1">{{date | date:"d F Y H:m:s"}}</h3>
+<div class="text-white bg-lagon p-4">
+    <h2 class="text-yellow-300 text-xl text-center p-4 mb-2">Console du site Nation Sound 77</h2>
     <hr>
-    <div class="py-1">
+    <div class="py-1 pl-4" >
         {% if user.is_authenticated %}
+            <h3 class="text-sm mb-2">{{date | date:"d F Y H:m:s"}}</h3>
             <span>Bienvenue, </span>{{ user.username }}
-            <hr>
-            <a href="{% url 'logout' %}">Déconnexion</a>
-            <hr>
+            <hr class="my-1">
+            <a href="{% url 'logout' %}" class="font-bold text-yellow-300">Déconnexion</a>
+            <hr class="mt-1 mb-24">
         {% else %}
             <a href="{% url 'login' %}">Connexion</a>
-            <hr>
+            <hr class="my-1">
             <a href="{% url 'signup' %}">S'inscrire</a>
-            <hr>
+            <hr class="mt-1 mb-[200%]">
         {% endif %}
     </div>
     {% if user.is_authenticated %}
-    <div class="bg-blue-500">
-        <a href="http://127.0.0.1:8000/admin/login/?next=/admin/">Console admin data et écrans</a>
+    <div class="text-lg">
+        <p class="font-bold text-yellow-300">Gestion admin</p>
+        <hr class="mb-2">
+        <div class="pl-4">
+            <div>
+                <a href="http://127.0.0.1:8000/admin/login/?next=/admin/">Console admin data et écrans</a>
+            </div>
+            <div class="mb-2">
+                <a href="http://127.0.0.1:8000/apirest/">Console API</a>
+            </div>
+        </div>
+        <hr>
     </div>
-    <br/>
-    <div>
-        <a href="http://127.0.0.1:8000/apirest/">Console API</a>
-    </div>
-    <hr>
-    <div>
-        <h1>Les pages externes</h1>
-        <ul>
+    <div class="text-lg">
+        <br>
+        <h1 class="font-bold text-yellow-300">Prévisualisation des pages pour l'appli mobile</h1>
+        <hr>
+        <ul class="pl-4 mt-4">
             <li>
-                <a href="{% url 'ecranReact-faq' %}">La FAQ</a>
+                <a href="{% url 'ecranReact-faq' %}">La faq</a>
             </li>
             <li>
                 <a href="{% url 'ecranReact-contacts' %}">Les contacts</a>
@@ -39,7 +46,7 @@
             <li>
                 <a href="{% url 'ecranReact-partenaires' %}">Les partenaires</a>
             </li>
-            <li>
+            <li class="mt-1 mb-[200%]">
                 <a href="{% url 'ecranReact-mentionslegales' %}">Mentions Légales</a>
             </li>
         </ul>        

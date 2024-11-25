@@ -45,7 +45,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: { beige: "#D98C3D" },
+      colors: { beige: "#D98C3D", lagon: "#21729e" },
     },
   },
   plugins: [

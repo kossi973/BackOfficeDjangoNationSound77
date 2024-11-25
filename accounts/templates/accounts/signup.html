@@ -1,20 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Le site du festival Nation Sound</h1>
-    <hr>
-    <h2>S'inscrire</h2>
-    <hr>
-    <form method="POST">
-        {% csrf_token %}
-        <p>
-            <label for="username">Nom d'utilisateur</label>
-            <input id="username" type="text" name="username">
-        </p>
-        <p>
-            <label for="password">Mot de passe</label>
-            <input id="password" type="password" name="password">
-        </p>
-        <button type="submit">S'inscrire</button>
-    </form>
+    <div class="text-white bg-lagon p-4">
+        <div class="p-4 mb-2">
+            <a href="{% url 'Home Page' %}" class="text-yellow-300 text-xl text-center">Console du site Nation Sound 77</a>
+        </div>
+        <hr class="my-1">
+        <h2 class="text-yellow-300">Inscription</h2>
+        <hr class="my-1">
+        <form method="POST">
+            {% csrf_token %}
+            <p class="mt-4">
+                <label for="username">Nom d'utilisateur</label>
+                <input class="rounded-lg" id="username" type="text" name="username">
+            </p>
+            <p class="my-2">
+                <label for="password">Mot de passe</label>
+                <input class="rounded-lg ml-6" id="password" type="password" name="password">
+            </p>
+            <button class="border-2 p-1 rounded bg-gray-500 font-bold mt-4 mb-[200%]" type="submit">S'inscrire</button>
+        </form>        
+    </div>
 {% endblock %}
