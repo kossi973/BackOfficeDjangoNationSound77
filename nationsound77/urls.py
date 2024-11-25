@@ -27,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('apirest/', include('backofficeNationSound77.urls')),
     path('', include('ecransReact.urls')),
+    path('', include('accounts.urls')),
 
 ]
 

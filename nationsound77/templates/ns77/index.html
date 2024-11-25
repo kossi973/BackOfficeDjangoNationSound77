@@ -1,34 +1,50 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Bonjour,<br> bienvenue sur la console d'aministration du site Nation Sound !!!</h2>
+    <h2>Bienvenue sur la console d'administration du site Nation Sound !!!</h2>
     <h3>{{date | date:"d F Y H:m:s"}}</h3>
     <hr>
     <br>
     <div>
-        <a href="http://127.0.0.1:8000/admin/login/?next=/admin/">Gestion des données et autorisations</a>
+        {% if user.is_authenticated %}
+            <span>Utilisateur : </span>{{ user.username }}
+            <hr>
+            <br>
+            <a href="{% url 'logout' %}">Déconnexion</a>
+            <hr>
+            <br>
+        {% else %}
+            <a href="{% url 'login' %}">Connexion</a>
+            <hr>
+            <a href="{% url 'signup' %}">S'inscrire</a>
+            <hr>
+        {% endif %}
     </div>
-    <br>
-    <div>
-        <a href="http://127.0.0.1:8000/apirest/">Console API</a>
-    </div>
-    <hr>
-    <div>
-        <h1>Les pages externes</h1>
-        <ul>
-            <li>
-                <a href="{% url 'ecranReact-faq' %}">La FAQ</a>
-            </li>
-            <li>
-                <a href="{% url 'ecranReact-contacts' %}">Les contacts</a>
-            </li>
-            <li>
-                <a href="{% url 'ecranReact-partenaires' %}">Les partenaires</a>
-            </li>
-            <li>
-                <a href="{% url 'ecranReact-mentionslegales' %}">Mentions Légales</a>
-            </li>
-        </ul>
-        
-    </div>
+    {% if user.is_authenticated %}
+        <div>
+            <a href="http://127.0.0.1:8000/admin/login/?next=/admin/">Console admin data et écrans</a>
+        </div>
+        <br/>
+        <div>
+            <a href="http://127.0.0.1:8000/apirest/">Console API</a>
+        </div>
+        <hr>
+        <div>
+            <h1>Les pages externes</h1>
+            <ul>
+                <li>
+                    <a href="{% url 'ecranReact-faq' %}">La FAQ</a>
+                </li>
+                <li>
+                    <a href="{% url 'ecranReact-contacts' %}">Les contacts</a>
+                </li>
+                <li>
+                    <a href="{% url 'ecranReact-partenaires' %}">Les partenaires</a>
+                </li>
+                <li>
+                    <a href="{% url 'ecranReact-mentionslegales' %}">Mentions Légales</a>
+                </li>
+            </ul>        
+        </div>
+    {% endif %}
 {% endblock %}

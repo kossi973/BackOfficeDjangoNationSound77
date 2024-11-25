@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'backofficeNationSound77',
-    'ecransReact'
+    'ecransReact',
+    'accounts'
 ]
 
 MIDDLEWARE = [
