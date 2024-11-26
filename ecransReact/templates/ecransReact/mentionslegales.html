@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>MENTIONS LEGALES</h1>
-    <hr>
-    {% for mentionlegale in mentionslegales %}
-        <h3>{{ mentionlegale.titre }}</h3>
-        <p>{{ mentionlegale.mention }}</p>
-        <hr>
-    {% endfor %}
+<div class="bg-blue-900 text-white p-4">
+    <div class="bg-blue-900 pb-[200%]">
+        <!-- <h1>MENTIONS LEGALES</h1> -->
+        {% for mentionlegale in mentionslegales %}
+            <h2 class="text-lg font-bold">{{ mentionlegale.titre }}</h2>
+            <p class="py-2">{{ mentionlegale.mention }}</p>
+            <hr class="mb-8">
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

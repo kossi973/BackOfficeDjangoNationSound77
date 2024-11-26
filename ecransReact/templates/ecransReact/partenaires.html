@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>LES PARTENAIRES</h1>
-    <hr>
-    {% for partenaire in partenaires %}
-        <h2>{{ partenaire.nom }}</h2>
-        <p>{{ partenaire.categorie }}</p>
-        <img src="{{ partenaire.visuel.url }}" alt="{{ partenaire.visuel.url }}" style="max-width: 100px;">
-        <p>{{ partenaire.description }}</p>
-        <hr>
-    {% endfor %}
+    <div class="bg-beige text-blue-900 flex flex-col items-center py-8">
+        <!-- <h1>LES PARTENAIRES</h1> -->
+        {% for partenaire in partenaires %}
+            <h2 class="text-lg font-bold">{{ partenaire.nom }}</h2>
+            <p class="text-sm">{{ partenaire.categorie }}</p>
+            <img src="{{ partenaire.visuel.url }}" alt="{{ partenaire.visuel.url }}" style="max-width: 100px;">
+            <p class="mb-8">{{ partenaire.description }}</p>
+        {% endfor %}
+    </div>
+
 {% endblock %}

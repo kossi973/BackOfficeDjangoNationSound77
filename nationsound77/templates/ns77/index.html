@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="text-white bg-lagon p-4">
-    <h2 class="text-yellow-300 text-xl text-center p-4 mb-2">Console du site Nation Sound 77</h2>
+<div class="text-white bg-lagon p-4 pb-[200%]">
+    <h1 class="text-yellow-300 text-xl text-center py-4 mb-4">Console du site Nation Sound 77</h1>
     <hr>
     <div class="py-1 pl-4" >
         {% if user.is_authenticated %}
-            <h3 class="text-sm mb-2">{{date | date:"d F Y H:m:s"}}</h3>
+            <h3 class="text-sm mb-2">{{date | date:"d F Y - H:m"}}</h3>
             <span>Bienvenue, </span>{{ user.username }}
             <hr class="my-1">
             <a href="{% url 'logout' %}" class="font-bold text-yellow-300">Déconnexion</a>
@@ -34,7 +34,7 @@
     </div>
     <div class="text-lg">
         <br>
-        <h1 class="font-bold text-yellow-300">Prévisualisation des pages pour l'appli mobile</h1>
+        <h1 class="font-bold text-yellow-300">Pages pour l'appli mobile</h1>
         <hr>
         <ul class="pl-4 mt-4">
             <li>
@@ -46,7 +46,7 @@
             <li>
                 <a href="{% url 'ecranReact-partenaires' %}">Les partenaires</a>
             </li>
-            <li class="mt-1 mb-[200%]">
+            <li class="mt-1">
                 <a href="{% url 'ecranReact-mentionslegales' %}">Mentions Légales</a>
             </li>
         </ul>        
