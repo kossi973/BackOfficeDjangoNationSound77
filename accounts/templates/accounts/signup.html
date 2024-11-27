@@ -10,20 +10,20 @@
         <hr class="my-1">
         <h2 class="text-yellow-300">Inscription</h2>
         <hr class="my-1">
-        <form method="POST">
+        <form method="POST" class="flex flex-col md:w-1/2 xl:w-1/4">
             {% csrf_token %}
-            <p class="mt-4">
+            <p class="my-4 flex flex-col">
                 <label for="username" class="text-white">Nom d'utilisateur</label>
-                <input class="rounded-lg ml-2" id="username" type="text" name="username">
+                <input class="rounded-lg" id="username" type="text" name="username">
             </p>
-            <p class="my-2">
+            <p class="my-4 flex flex-col">
                 <label for="password" class="text-white">Mot de passe</label>
-                <input class="rounded-lg ml-7" id="password" type="password" name="password">
+                <input class="rounded-lg" id="password" type="password" name="password">
             </p>
-            <button class="border-2 p-1 rounded bg-gray-500 font-bold mt-4" type="submit">S'inscrire</button>
+            <button class="border-2 p-1 rounded bg-gray-500 font-bold mt-4 text-gray-800" type="submit">S'inscrire</button>
         </form>
         {% if messages %}
-        <ul class="mt-8 text-red-500 bg-yellow-500 pl-4 font-bold">
+        <ul class="mt-8 text-red-500 bg-yellow-500 pl-4 font-bold rounded md:w-1/2 xl:w-1/4">
             {% for message in messages %}
                 <li >{{ message }}</li>
             {% endfor %}
