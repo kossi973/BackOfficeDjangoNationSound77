@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth import get_user_model, login, logout, authenticate
 from django.shortcuts import redirect, render
-from .forms import RegistrationForm
+from .forms import LoginForm, RegistrationForm
 import re
 
 User= get_user_model()
@@ -54,18 +54,20 @@ def signup(request):
 #Requête de connexion
 def login_user(request):
     if request.method == "POST":
-        #Connecter l'utilisateur
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-
-        user = authenticate(username=username, password=password)
-        if user:
+        form = LoginForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            #Connecter l'utilisateur
             login(request, user)
             return redirect('Home Page')
         else:
-            messages.error(request, 'Nom d\'utilisateur ou mot de passe incorrect.')
-
-    return render(request, 'accounts/login.html')
+            # messages.error(request, 'Nom d\'utilisateur ou mot de passe incorrect.')
+            for error in form.errors.values():
+                messages.error(request, error)
+    else:
+        form = LoginForm()
+    
+    return render(request, 'accounts/login.html', {'form': form})
 
 
 #Requête de déconnexion

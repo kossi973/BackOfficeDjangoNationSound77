@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.contrib.auth.forms import AuthenticationForm
 import re
 
 class RegistrationForm(forms.Form):
@@ -31,3 +32,18 @@ class RegistrationForm(forms.Form):
         if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
             raise ValidationError('Le mot de passe doit contenir au moins un caractère spécial.')
         return password
+    
+
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'class': 'rounded-lg',
+            'placeholder': 'Nom d\'utilisateur'
+        })
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'rounded-lg',
+            'placeholder': 'Mot de passe'
+        })
+    )
