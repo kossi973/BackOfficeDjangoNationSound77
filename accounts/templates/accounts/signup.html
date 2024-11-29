@@ -12,18 +12,34 @@
         <hr class="my-1">
         <form method="POST" class="flex flex-col md:w-96">
             {% csrf_token %}
-            <p class="my-4 flex flex-col">
-                <label for="username" class="text-white">Nom d'utilisateur</label>
-                <input class="rounded-lg" id="username" type="text" name="username">
+            {{ form.non_field_errors }}
+            <p class="mt-4 flex flex-col">
+                <label for="{{ form.username.id_for_label }}" class="text-white">Nom d'utilisateur</label>
+                {{ form.username }}
+                {% if form.username.errors %}
+                    <ul class="text-red-500 bg-yellow-300 font-bold p-2 rounded">
+                        {% for error in form.username.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
             </p>
-            <p class="my-4 flex flex-col">
-                <label for="password" class="text-white">Mot de passe</label>
-                <input class="rounded-lg" id="password" type="password" name="password">
+            <p class="mt-8 flex flex-col">
+                <label for="{{ form.password.id_for_label }}" class="text-white">Mot de passe</label>
+                {{ form.password }}
+                {% if form.password.errors %}
+                    <ul class="text-red-500 bg-yellow-300 font-bold p-2 rounded">
+                        {% for error in form.password.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
             </p>
-            <button class="border-2 p-1 rounded bg-gray-500 font-bold mt-4 text-gray-800" type="submit">S'inscrire</button>
+            <button class="border-2 p-1 rounded bg-gray-500 font-bold mt-12 text-gray-800" type="submit">S'inscrire</button>
         </form>
+
         {% if messages %}
-        <ul class="mt-8 text-red-500 bg-yellow-500 pl-4 font-bold rounded md:w-96 border border-red-500">
+        <ul class="mt-16 text-red-500 bg-yellow-300 font-bold p-2 rounded md:w-96">
             {% for message in messages %}
                 <li >{{ message }}</li>
             {% endfor %}
