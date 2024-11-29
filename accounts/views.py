@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import get_user_model, login, logout, authenticate
+from django.contrib.auth import get_user_model, login, logout
 from django.shortcuts import redirect, render
 from .forms import LoginForm, RegistrationForm
 import re
@@ -46,8 +46,7 @@ def signup(request):
             for error in form.errors.values():
                 messages.error(request, error)
     else:
-        form = RegistrationForm()
-    
+        form = RegistrationForm()    
     return render(request, 'accounts/signup.html', {'form': form})
 
 
@@ -66,12 +65,16 @@ def login_user(request):
                 messages.error(request, error)
     else:
         form = LoginForm()
-    
     return render(request, 'accounts/login.html', {'form': form})
+
+
+def organisateur(request):
+    est_organisateur = request.user.groups.filter(name='Organisateur').exists()
+    return render(request, 'accounts/login.html', {'est_organisateur': est_organisateur})
 
 
 #Requête de déconnexion
 def logout_user(request):
-    logout(request)
-    
+    logout(request)    
     return redirect('Home Page')
+
