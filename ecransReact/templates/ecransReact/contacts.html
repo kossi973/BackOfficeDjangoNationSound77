@@ -2,26 +2,34 @@
 
 {% block content %}
     <div class="bg-beige">
-        <!-- <h1>NOUS CONTACTER</h1> -->
-        <hr>
+        <div class="py-8">
+            <h1 class='h-12 pt-2 text-3xl md:text-4xl font-bold text-yellow-200 text-center bg-orange-600/80'>CONTACTS</h1>
+        </div>
         {% for contact in contacts %}
-            <div class="w-3/5 mx-auto py-4 text-white">
-                <img src="{{ contact.visuel.url }}" alt="{{ contact.visuel.url }}">
-                <div class="bg-blue-900 p-4 my-4">
-                    <p class="underline italic font-bold">Adresse du festival : </p>
-                    <p>{{ contact.adresse }}</p>
-                </div>
-                <div class="bg-blue-900 p-4 my-4">
-                    <p class="underline italic font-bold">Horaires d'ouverture : </p>
-                    <p>{{ contact.horaires }}</p>
-                </div>
-                <div class="bg-blue-900 p-4 my-4">
-                    <p class="underline italic font-bold">Mail : </p>
-                    <p>{{ contact.mail }}</p>
-                </div>
-                <div class="bg-blue-900 p-4 mt-4 mb-[200%]">
-                    <p class="underline italic font-bold">Téléphone : </p>
-                    <p>{{ contact.telephone }}</p>
+            <div class="w-3/5 mx-auto text-white flex flex-col items-center">
+                <div>
+                    <img src="{{ contact.visuel.url }}" alt="{{ contact.visuel.url }}" class="rounded">
+                    <div class="bg-blue-900/85 p-4 my-4 rounded">
+                        <p class="underline italic font-bold">Adresse du festival : </p>
+                        <p>{{ contact.adresse }}</p>
+                    </div>
+                    <div class="bg-blue-900/85 p-4 my-4 rounded">
+                        <p class="underline italic font-bold">Horaires d'ouverture : </p>
+                        <p>{{ contact.horaires }}</p>
+                    </div>
+                    <div class="bg-blue-900/85 p-4 my-4 rounded">
+                        <p class="underline italic font-bold">Mail : </p>
+                        <p>{{ contact.mail }}</p>
+                    </div>
+                    <div class="bg-blue-900/85 p-4 mt-4 rounded">
+                        <p class="underline italic font-bold">Téléphone : </p>
+                        <p>{{ contact.telephone }}</p>
+                    </div>
+                    <div class="flex justify-center">
+                        <button class='mt-20 text-white font-bold text-md rounded px-12 py-2 bg-blue-700 shadow shadow-gray-200 active:shadow-xl active:bg-amber-500 mb-[200%]'>
+                            <a href="http://localhost:5173/">Retour</a>
+                        </button>
+                    </div>
                 </div>
             </div>
         {% endfor %}

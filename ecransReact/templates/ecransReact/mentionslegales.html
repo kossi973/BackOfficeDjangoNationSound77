@@ -1,14 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="bg-blue-900 text-white p-4">
-    <div class="bg-blue-900 pb-[200%]">
-        <!-- <h1>MENTIONS LEGALES</h1> -->
+<div class="bg-beige text-white">
+    <div class="py-8">
+        <h1 class='h-12 pt-1 text-3xl md:text-4xl font-bold text-yellow-200 text-center bg-orange-600/80'>MENTIONS LEGALES</h1>
+    </div>
+    <div class="bg-blue-900/85 p-4">
         {% for mentionlegale in mentionslegales %}
             <h2 class="text-lg font-bold">{{ mentionlegale.titre }}</h2>
             <p class="py-2">{{ mentionlegale.mention }}</p>
             <hr class="mb-8">
         {% endfor %}
+    </div>
+    <div class="flex justify-center">
+        <button class='mt-20 text-white font-bold text-md rounded px-12 py-2 bg-blue-700 shadow shadow-gray-200 active:shadow-xl active:bg-amber-500 mb-[200%]'>
+            <a href="http://localhost:5173/">Retour</a>
+        </button>
     </div>
 </div>
 {% endblock %}

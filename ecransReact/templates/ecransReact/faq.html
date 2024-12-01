@@ -1,13 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="bg-beige border-2 border-blue-800">
-        <!-- <h1 class="p-4 text-xl text-blue-900 text-center">-- QUESTIONS FREQUENTES --</h1> -->
+    <div class="bg-beige">
+        <div class="py-8">
+            <h1 class='h-12 pt-1 text-3xl md:text-4xl font-bold text-yellow-200 text-center bg-orange-600/80'>FAQ</h1>
+        </div>
         <hr>
         {% for faq in faq %}
-            <h2 class="p-4 bg-blue-900 text-white text-lg">{{ faq.question }}</h2>
+            <h2 class="p-4 bg-blue-900/85 text-white text-lg">{{ faq.question }}</h2>
             <p class="bg-gray-100 px-4 pt-4 pb-8">{{ faq.reponse }}</p>
             <hr>
         {% endfor %}
+        <div class="flex justify-center">
+            <button class='mt-20 text-white font-bold text-md rounded px-12 py-2 bg-blue-700 shadow shadow-gray-200 active:shadow-xl active:bg-amber-500 mb-[200%]'>
+                <a href="http://localhost:5173/">Retour</a>
+            </button>
+        </div>
     </div>
 {% endblock %}

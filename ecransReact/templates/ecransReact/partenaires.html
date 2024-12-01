@@ -1,15 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="bg-beige text-blue-900 py-8">
-        <div class="w-1/3 flex flex-col items-center mx-auto">
-            <!-- <h1>LES PARTENAIRES</h1> -->
+    <div class="bg-beige text-blue-900">
+        <div class="py-8">
+            <h1 class='h-12 pt-1 text-3xl md:text-4xl font-bold text-yellow-200 text-center bg-orange-600/80'>LES PARTENAIRES</h1>
+        </div>
+        <div class="w-1/3 flex flex-col items-center mx-auto bg-gray-200/50 rounded">
             {% for partenaire in partenaires %}
-                <h2 class="text-lg font-bold">{{ partenaire.nom }}</h2>
-                <p class="text-sm">{{ partenaire.categorie }}</p>
+                <h2 class="text-lg font-bold mt-8">{{ partenaire.nom }}</h2>
+                <p class="text-sm border-b w-32 text-center mb-2">{{ partenaire.categorie }}</p>
                 <img src="{{ partenaire.visuel.url }}" alt="{{ partenaire.visuel.url }}" style="max-width: 100px;">
-                <p class="mb-8">{{ partenaire.description }}</p>
+                <div class="mt-2 flex justify-center">
+                    <p class="bg-gray-200/50 rounded px-4 mx-4">{{ partenaire.description }}</p>
+                </div>
             {% endfor %}
+        </div>
+        <div class="flex justify-center">
+            <button class='mt-20 text-white font-bold text-md rounded px-12 py-2 bg-blue-700 shadow shadow-gray-200 active:shadow-xl active:bg-amber-500 mb-[200%]'>
+                <a href="http://localhost:5173/">Retour</a>
+            </button>
         </div>
     </div>
 
