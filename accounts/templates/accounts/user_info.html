@@ -8,7 +8,7 @@
             </h1>
         </a>
         <hr class="my-1">
-        <h2 class="text-yellow-300">Collecte d'informations utilisateur</h2>
+        <h2 class="text-yellow-300">Informations utilisateur</h2>
         <hr class="my-1">
 
         <form method="post">
@@ -22,8 +22,8 @@
                 {{ form.address }}
                 <label for="{{ form.email.id_for_label }}" class="text-white mt-2">Mail</label>
                 {{ form.email }}
+                <button type="submit" class="border-2 p-1 rounded bg-yellow-400 font-bold mt-12 text-lagon">Envoyer</button>
             </div>
-            <button type="submit" class="border-2 p-1 rounded bg-yellow-400 font-bold mt-12 text-lagon">Envoyer</button>
         </form>
 
         {% if messages %}
