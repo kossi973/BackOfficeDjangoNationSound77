@@ -16,7 +16,7 @@
                 <label for="{{ form.username.id_for_label }}" class="text-white">Nom d'utilisateur</label>
                 {{ form.username }}
                 {% if form.username.errors %}
-                    <ul class="text-red-500 bg-yellow-300 font-bold p-2 rounded"">
+                    <ul class="text-red-500 bg-yellow-300 font-bold p-2 rounded">
                         {% for error in form.username.errors %}
                             <li>{{ error }}</li>
                         {% endfor %}
@@ -34,7 +34,7 @@
                     </ul>
                 {% endif %}
             </p>
-            <button class="border-2 p-1 rounded bg-gray-500 font-bold mt-12 text-gray-800" type="submit">Connexion</button>
+            <button class="border-2 p-1 rounded bg-yellow-400 text-lagon font-bold mt-12" type="submit">Connexion</button>
         </form>
         {% if messages %}
         <ul class="mt-16 text-red-500 bg-yellow-300 font-bold p-2 rounded md:w-96">

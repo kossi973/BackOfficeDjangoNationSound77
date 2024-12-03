@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="bg-lagon p-4 pb-[200%]">
+        <a href="{% url 'Home Page' %}" >
+            <h1 class="text-yellow-300 text-xl text-center py-4 mb-4">
+                Console du site Nation Sound 77
+            </h1>
+        </a>
+        <hr class="my-1">
+        <h2 class="text-yellow-300">Collecte d'informations utilisateur</h2>
+        <hr class="my-1">
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="flex flex-col md:w-96">
+                <label for="{{ form.first_name.id_for_label }}" class="text-white mt-2">Prénom</label>
+                {{ form.first_name }}
+                <label for="{{ form.last_name.id_for_label }}" class="text-white mt-2">Nom</label>
+                {{ form.last_name }}
+                <label for="{{ form.address.id_for_label }}" class="text-white mt-2">Adresse</label>
+                {{ form.address }}
+                <label for="{{ form.email.id_for_label }}" class="text-white mt-2">Mail</label>
+                {{ form.email }}
+            </div>
+            <button type="submit" class="border-2 p-1 rounded bg-yellow-400 font-bold mt-12 text-lagon">Envoyer</button>
+        </form>
+
+        {% if messages %}
+        <ul class="mt-16 text-red-500 bg-yellow-300 font-bold p-2 rounded md:w-96">
+            {% for message in messages %}
+                <li >{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}       
+    </div>
+{% endblock %}

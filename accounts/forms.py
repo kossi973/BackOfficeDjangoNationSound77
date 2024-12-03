@@ -1,7 +1,21 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import AuthenticationForm
+from accounts.models import UserProfile
 import re
+
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['first_name', 'last_name', 'address', 'email']
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'rounded border-gray-300 p-2'}),
+            'last_name': forms.TextInput(attrs={'class': 'rounded border-gray-300 p-2'}),
+            'address': forms.Textarea(attrs={'class': 'rounded border-gray-300 p-2'}),
+            'email': forms.EmailInput(attrs={'class': 'rounded border-gray-300 p-2'}),
+        }
+
 
 class RegistrationForm(forms.Form):
     username = forms.CharField(
